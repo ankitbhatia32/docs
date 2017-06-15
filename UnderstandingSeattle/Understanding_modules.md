@@ -9,8 +9,8 @@ Current and any upcoming extensions can be structured as modules in python. Let 
               extensions/                                        Top-level package
       				  __init__.py            		Initialize the package
       				  ipv6/                  		Subpackage 
-              				  __init__.py
-              				  emulcomm_ipv6.py
+              			__init__.py
+              			emulcomm_ipv6.py
            ```
 
   As we can see we have "extensions" as a top level module/package then inside we have "ipv6" in which finally we have our IPv6 python script i.e. ```emulcomm_ipv6.py``` which we need, this python file contains the IPv6 API functions defined. This structure is given [here](https://github.com/ankitbhatia32/repy_v2/tree/repy_extensions) Go through the extensions module and it will be similar to the given above. 

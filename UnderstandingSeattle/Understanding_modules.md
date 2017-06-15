@@ -5,11 +5,13 @@ With the expansion of Repy and addition of new extensions like IPv6 support, htt
 Current and any upcoming extensions can be structured as modules in python. Let us discuss this module structure with an example of IPv6 extension, similar steps can be followed for other extensions. Our example involves the use of module called ```extensions``` with its subpackages, this is given [here](https://github.com/ankitbhatia32/repy_v2/tree/repy_extensions). We assume you have been through build instructions of Repy_V2 and have clear understanding of how build process works, if not [click here](https://github.com/SeattleTestbed/docs/blob/master/Contributing/BuildInstructions.md) and then try to comprehend the following steps given as follows:
   1. First of all it is important to understand modules given in python documenatation given [here](https://docs.python.org/2/tutorial/modules.html). Understand how you want to structure modules. We have structured our IPv6 extension as follows:
 
-               ```extensions/                  		Top-level package
-      					__init__.py            		Initialize the package
-      					ipv6/                  		Subpackage 
+           ```
+              extensions/                                        Top-level package
+      				  __init__.py            		Initialize the package
+      				  ipv6/                  		Subpackage 
               				  __init__.py
-              				  emulcomm_ipv6.py```
+              				  emulcomm_ipv6.py
+           ```
 
   As we can see we have "extensions" as a top level module/package then inside we have "ipv6" in which finally we have our IPv6 python script i.e. ```emulcomm_ipv6.py``` which we need, this python file contains the IPv6 API functions defined. This structure is given [here](https://github.com/ankitbhatia32/repy_v2/tree/repy_extensions) Go through the extensions module and it will be similar to the given above. 
 
@@ -32,10 +34,11 @@ Current and any upcoming extensions can be structured as modules in python. Let 
   4. On importing the module and its subpackage we need to define these function calls in User context Wrapper information according to our modules implementation of IPv6. For example, "sendmessage_ipv6" is function defined in ```emulcomm_ipv6.py```, so for our module implementation we should define this function as follows:
 
                 ```
-                  'sendmessage_ipv6' :
-           				{'func' : extensions.ipv6.emulcomm_ipv6.sendmessage_ipv6,
+                'sendmessage_ipv6':
+           		{'func' : extensions.ipv6.emulcomm_ipv6.sendmessage_ipv6,
        					'args' : [Str(), Int(), Str(), Str(), Int()],
        					'return' : Int()}
-       			``` 
-  We need to define our module and its subpackage to call this function. Similar update need to be done every function call that need to be added in wrapper info. Again similar update need to carried out when implementing modules for any other extensions of Repy. This also give [here](https://github.com/ankitbhatia32/repy_v2/blob/repy_extensions/namespace.py#L667)
+                ``` 
+                     
+  We need to define our module and its subpackage to call this function. Similar update need to be done every function call that need to be added in wrapper info. Again similar update need to carried out when implementing modules for any other extensions of Repy, this is shown [here](https://github.com/ankitbhatia32/repy_v2/blob/repy_extensions/namespace.py#L667)
 

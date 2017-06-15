@@ -36,8 +36,8 @@ Current and any upcoming extensions can be structured as modules in python. Let 
                 ```
                 'sendmessage_ipv6':
            		{'func' : extensions.ipv6.emulcomm_ipv6.sendmessage_ipv6,
-       					'args' : [Str(), Int(), Str(), Str(), Int()],
-       					'return' : Int()}
+       			         'args' : [Str(), Int(), Str(), Str(), Int()],
+       			         'return' : Int()}
                 ``` 
                      
   We need to define our module and its subpackage to call this function. Similar update need to be done every function call that need to be added in wrapper info. Again similar update need to carried out when implementing modules for any other extensions of Repy, this is shown [here](https://github.com/ankitbhatia32/repy_v2/blob/repy_extensions/namespace.py#L667)
